@@ -146,7 +146,7 @@ The historical data from **1995–2020** is used for model development, while **
           │ Actual vs Predicted │
           └─────────────────────┘
 ```
-##Project Structure
+## Project Structure
 
 ```text
 Rainova-AI/
@@ -176,6 +176,6 @@ Rainova-AI/
 ```
 ---
 
-###Author
+## 👨‍💻 Author
 
 Aman Kumar Jha
