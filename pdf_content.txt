@@ -1,0 +1,536 @@
+=== PAGE 1 ===
+ 
+ 
+ 
+DEPARTMENT OF CIVIL ENGINEERING 
+ 
+COURSE PROJECT: RAINFALL PREDICTION USING MACHINE 
+LEARNING 
+COURSE: WATER CONSERVATION AND RAINWATER HARVESTING 
+(BCV605A) 
+COURSE COORDINATORS: PROF ARCHANA K & PROF SHIMNA M 
+ 
+District of study: _____________________________ 
+ 
+ 
+Student Name 
+Student USN 
+Course 
+Coordinator 
+Marks  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Submitted on:  
+ 
+Signature of course coordinator:  
+
+
+=== PAGE 2 ===
+1. Instructions: 
+In this course project, students will model and predict future rainfall based on historical data 
+using machine learning techniques on the Python platform. The goal is to develop accurate 
+predictive models, understand trends in rainfall data, and improve skills in machine learning 
+and time-series analysis. 
+Task Overview: 
+1. Data Pre-processing: Clean and prepare the given dataset for analysis. 
+2. Feature Engineering: Extract useful features such as time-related variables (e.g., 
+year, month, etc.) and possibly other weather factors. 
+3. Model Selection and Training: Choose and train appropriate machine learning 
+models (e.g., decision trees, random forests, neural networks, etc.). 
+4. Model Evaluation: Assess the performance using evaluation metrics like RMSE, R² 
+score, and accuracy. 
+5. Prediction: Predict future rainfall and visualize the results. 
+2. Details of the City/Study area: 
+Attribute 
+Details 
+City Name 
+ 
+State / Province 
+ 
+Country 
+ 
+Latitude 
+ 
+Longitude 
+ 
+Area (sq km) 
+ 
+Climate Type 
+ 
+Average Annual Rainfall (mm) 
+ 
+Maximum Rainfall (mm/day) 
+ 
+ 
+ 
+ 
+<Insert location map/google map of the city> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+=== PAGE 3 ===
+3. Basic Information of the Data 
+Description of the Dataset:  
+Source of the Data: https://power.larc.nasa.gov/data-access-viewer/  
+Example 
+NASA/POWER Source Native Resolution Daily Data  
+ 
+ 
+Dates (month/day/year): 01/01/1990 through 12/31/2024 in UTC 
+ 
+ 
+ 
+Location: latitude  9.1644   longitude 76.7423 elevation from MERRA-2: Average for 0.5 
+x 0.625 degree lat/lon region = 211.5 meters 
+ 
+ 
+ 
+The value for missing source data that cannot be computed or is outside of the 
+sources availability range: -999  
+ 
+ 
+ 
+Parameters: 
+ 
+Attribute 
+Description 
+ALLSKY_SFC_SW_DWN 
+CERES SYN1deg All Sky Surface Shortwave 
+Downward Irradiance (MJ/m²/day) 
+ALLSKY_SFC_SW_DNI 
+CERES SYN1deg All Sky Surface Shortwave 
+Downward Direct Normal Irradiance (MJ/m²/day) 
+T2M 
+MERRA-2 Temperature at 2 Meters (°C) 
+T2M_MIN 
+MERRA-2 Temperature at 2 Meters Minimum (°C) 
+T2M_MAX 
+MERRA-2 Temperature at 2 Meters Maximum (°C) 
+QV2M 
+MERRA-2 Specific Humidity at 2 Meters (g/kg) 
+RH2M 
+MERRA-2 Relative Humidity at 2 Meters (%) 
+PRECTOTCORR 
+MERRA-2 Precipitation Corrected (mm/day) 
+WS2M 
+MERRA-2 Wind Speed at 2 Meters (m/s) 
+GWETTOP 
+MERRA-2 Surface Soil Wetness (1) 
+ 
+● Target Variable: 
+o Daily Rainfall (mm): PRECTOTCORR 
+4. Splitting of data: YEAR WISE 
+Training & Testing period: 1995 to 2020. Split data year wise for a ratio of 80:20.  
+Example: Training: (80%) 1995,1998,1990,2000,1996,2002,etc  
+                 Testing: (20%): 1997,1991,1997….. 
+Unseen data/ prediction: 2021 to 2025  
+• These are actual rainfall values. 
+• Do not use them for training or testing your model. 
+• Use the best model to predict rainfall for this period. 
+
+
+=== PAGE 4 ===
+• Compare your predicted values with these actual values to evaluate your 
+model’s accuracy. 
+ 
+5. Data Cleaning Report:  
+Handling Missing Values: 
+(Describe how missing values were handled, e.g., imputation, removal of 
+rows/columns, etc.) 
+Outlier Detection and Removal: 
+(Explain how outliers were identified and handled, if applicable) 
+Data Normalization/Standardization: 
+(If any scaling was performed, mention the methods, e.g., Min-Max Scaling, Z-
+score Standardization) 
+Final Dataset: 
+(Provide a brief summary of the cleaned dataset, including the number of 
+rows/columns after cleaning) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+=== PAGE 5 ===
+6. Feature Ranking Report 
+Feature Importance: 
+(Explain how you identified which features are most relevant for predicting 
+rainfall. Mention methods like correlation analysis, mutual information, or feature 
+importance techniques.) 
+Top Features: 
+(List the most important features that significantly contribute to predicting 
+rainfall) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+=== PAGE 6 ===
+7. Principal Component Analysis (PCA) Report 
+PCA Objective: 
+(Explain the purpose of performing PCA—reducing dimensionality, visualizing variance, 
+etc.) 
+Results of PCA: 
+(Summarize the results, such as the number of principal components chosen and the 
+explained variance ratio) 
+Visualizations: 
+(Include any graphs or plots like PCA biplots or variance explained by each component) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+=== PAGE 7 ===
+8. Development of ML models 
+● Models Used: 
+o (Describe the machine learning models you have tried. For example, Decision 
+Trees, Random Forest, Support Vector Machines, KNN, Neural Networks, 
+etc.) 
+● Reason for Choosing Each Model: 
+o (Justify why each model was chosen for the task) 
+● Best Performing Model: 
+o (Which model gave the best results and why?) 
+● Table Comparison: 
+o Provide a table comparing the performance of different models based on R², 
+RMSE, and accuracy on both training and testing data. 
+Model 
+R² Score 
+(Train) 
+R² Score 
+(Test) 
+RMSE 
+(Train) 
+RMSE 
+(Test) 
+MAE 
+(Train) 
+MAE 
+ (Test) 
+MSE 
+(Train) 
+MSE 
+ (Test) 
+Model 1 
+(e.g., RF) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Model 2 
+(e.g., 
+SVM) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Model 3 
+(e.g., NN) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+… 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+…. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+… 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+… 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+… 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+… 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+=== PAGE 8 ===
+7. Selection of best ML model 
+● Selected Model: 
+o (Describe the model that gave the best results based on the comparison, 
+including why it was chosen) 
+● Evaluation Metrics: 
+o Discuss the evaluation metrics used, such as R² score, RMSE, accuracy, etc. 
+● Performance Indicators: 
+o Provide a table comparing the model’s performance on the training and test 
+sets. 
+Best ML 
+Model 
+Metric 
+Training Set 
+Test Set 
+ 
+R² Score 
+ 
+ 
+RMSE 
+ 
+ 
+MAE 
+ 
+ 
+MSE 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+=== PAGE 9 ===
+9. Prediction with the best model for the year 2025 
+● Predicted Rainfall vs Actual Rainfall: 
+o (Provide a table with actual vs predicted values for the test set) 
+● Prediction Performance: 
+o (Discuss how well the model performed in terms of prediction accuracy, e.g., 
+the predicted rainfall vs. observed rainfall) 
+● Graphs and Visualizations: 
+o Include relevant visualizations, such as: 
+▪ 
+Time-series plots of rainfall over time. 
+▪ 
+Predicted vs. Actual rainfall comparison plots. 
+▪ 
+Model performance graphs (e.g., learning curves, residual plots). 
+o Provide a brief analysis of each graph. 
+Example 
+Date 
+Actual Rainfall (mm) 
+ ( Unseen data) 
+Predicted Rainfall (mm) (by the 
+best model) 
+01-01-2021 
+ 
+ 
+02-01-2021 
+ 
+ 
+03-01-2021 
+ 
+ 
+… 
+ 
+ 
+….. 
+ 
+ 
+…. 
+ 
+ 
+31-12-2025 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+=== PAGE 10 ===
+10. Create a pickle file to predict rainfall using the best model:  
+ 
+• Save your best-trained model as a pickle file. 
+ 
+• This pickle file will allow the user to predict rainfall for a specific 
+day. 
+ 
+• The user will enter values for 11 features corresponding to that day. 
+ 
+• The model should then output the predicted rainfall based on the 
+entered values. 
+ 
+• This has to be demonstrated to the course coordinators 
+ 
+ 
+ 
+(Insert screenshot of the pickle interface or page here) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+11. Conclusion   
+- Discuss ML applications in prediction of rainfall 
+-  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+=== PAGE 11 ===
+ 
+ 
+ 
+ 
+Annexures: 
+1. Complete Python Code: 
+o Attach the full code used for data pre-processing, feature engineering, model 
+training, evaluation, and predictions. 
+2. Cleaned Dataset: 
+o Attach the cleaned dataset that was used in the analysis. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+*** 
+
+
