@@ -148,6 +148,7 @@ The historical data from **1995–2020** is used for model development, while **
 ```
 ##Project Structure
 
+```text
 Rainova-AI/
 │
 ├── assets/
@@ -172,7 +173,7 @@ Rainova-AI/
 ├── unseen_predictions_plot.png
 │
 └── pdf_content.txt
-
+```
 ---
 
 ##Author
